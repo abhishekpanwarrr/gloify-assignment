@@ -1,13 +1,15 @@
-import React from "react";
-import TaskList from "./components/taskList";
+import React, { useState } from "react";
 import Navbar from "./components/navbar";
-const App = () => {
-  return (
-    <>
-      <Navbar />
-      <TaskList />
-    </>
-  );
-};
+import Home from "./components/home";
+// import { UserContext } from "./context/UserContext";
 
-export default App;
+export default function App() {
+  const [sideBar, setSideBar] = useState(true);
+
+  return (
+    <div className="w-full">
+      <Navbar sideBar={sideBar} setSideBar={setSideBar} />
+      <Home sideBar={sideBar} setSideBar={setSideBar} />
+    </div>
+  );
+}

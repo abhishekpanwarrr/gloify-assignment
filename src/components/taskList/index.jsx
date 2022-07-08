@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import Toastify from "toastify-js";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { fetchTaskLists } from "../../helpers";
-
 const TaskList = ({
   setIsEditOpen,
   setEditMessage,
@@ -12,7 +11,7 @@ const TaskList = ({
 }) => {
   const dragItem = useRef();
   const dragOverItem = useRef();
-  //
+
   const dragStart = (position) => {
     dragItem.current = position;
   };
@@ -68,6 +67,7 @@ const TaskList = ({
     const data = await fetchTaskLists();
 
     function comparePriority(a, b) {
+      // converting to uppercase to have case-insensitive comparison
       const firstPrioriy = parseInt(a.assigned_to);
       const secondPrioriy = parseInt(b.assigned_to);
 
@@ -88,7 +88,7 @@ const TaskList = ({
   return (
     <>
       {task &&
-        task?.map((item, index) => (
+        task.map((item, index) => (
           <div
             className={` bg-slate-400 hover:bg-slate-500 mb-1 pr-5 flex items-center space-x-2 justify-between h-12 text-base cursor-move group md:w-full`}
             onDragStart={() => dragStart(index)}
@@ -115,7 +115,7 @@ const TaskList = ({
               <FaEdit
                 className="cursor-pointer text-blue-500"
                 onClick={() => {
-                  setIsEditOpen((open) => !open);
+                  setIsEditOpen(true);
                   setEditMessage(item.message);
                   setEditId(item.id);
                 }}

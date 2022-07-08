@@ -70,6 +70,16 @@ const Navbar = ({ sideBar, setSideBar }) => {
                   {item.data}
                 </li>
               ))}
+            {/* <section className="mt-5 flex">
+            <input
+            type="text"
+            className="h-9 pl-2 w-[65%] border-none outline-none rounded-tl-sm rounded-bl-sm"
+            placeholder="Enter user Name..."
+            />
+            <button className="bg-orange-500 px-2 py-1.5 text-white h-9 rounded-tr-sm rounded-br-sm">
+            Add User
+            </button>
+          </section> */}
           </ul>
         )}
       </nav>

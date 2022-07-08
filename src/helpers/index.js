@@ -1,5 +1,7 @@
+import axios from "axios";
+
 export const fetchTaskLists = async () => {
-  const response = await fetch("https://devza.com/tests/tasks/list", {
+  const response = await axios("https://devza.com/tests/tasks/list", {
     headers: {
       AuthToken: "UrM4YHgb1FcqEf1tuKwmAMMX5MxFZ12a",
     },
